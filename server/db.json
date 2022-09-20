@@ -1,0 +1,22 @@
+{
+  "devices": [
+    {
+      "title": "scarpe",
+
+      "price": 100,
+
+      "id": 1
+    },
+    {
+      "title": "scarpe 2",
+
+      "price": 200,
+
+      "id": 2
+    }
+  ],
+  "login": {
+    "name": "Giulia Maggio",
+    "token": 123456
+  }
+}
