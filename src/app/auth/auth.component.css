@@ -1,0 +1,21 @@
+.my_btn {
+  position: relative;
+  display: inline-block;
+  padding: 10px 20px;
+  margin: 0 5px;
+  color: #203c79;
+  font-size: 16px;
+  text-decoration: none;
+  text-transform: uppercase;
+  overflow: hidden;
+  transition: 0.5s;
+  margin-top: 40px;
+  letter-spacing: 4px;
+}
+
+.my_btn:hover {
+  background: #c4d4cc;
+  color: rgb(19, 14, 14);
+  border-radius: 5px;
+  box-shadow: 0 0 5px #94a4a5, 0 0 5px #5e6666, 0 0 5px #647172, 0 0 2px #5d6161;
+}

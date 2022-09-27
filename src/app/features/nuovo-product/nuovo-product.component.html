@@ -1,0 +1,84 @@
+<h2>Nuovo Film</h2>
+<!-- <app-auth
+  *[ngIf]="isRegister"
+  (utenteProfilo)="nomeAggiunto($event)"
+></app-auth> -->
+<form [formGroup]="filmForm" (ngSubmit)="onSubmit()">
+  <div class="mb-3">
+    <label for="albumId" class="form-label">Album id</label>
+    <input
+      type="text"
+      name="albumId"
+      class="form-control"
+      formControlName="albumId"
+      [class.is-invalid]="
+        filmForm.get('albumId')?.invalid && filmForm.get('albumId')?.touched
+      "
+    />
+    <div class="invalid-feedback">L'albumId è obbligatorio</div>
+  </div>
+
+  <div class="mb-3">
+    <label for="id" class="form-label">Id</label>
+    <input
+      type="text"
+      name="id"
+      class="form-control"
+      formControlName="id"
+      [class.is-invalid]="
+        filmForm.get('id')?.invalid && filmForm.get('id')?.touched
+      "
+    />
+    <div class="invalid-feedback">L'id è obbligatorio</div>
+  </div>
+
+  <div class="mb-3">
+    <label for="title" class="form-label">Title</label>
+    <input
+      type="text"
+      name="title"
+      class="form-control"
+      formControlName="title"
+      [class.is-invalid]="
+        filmForm.get('title')?.invalid && filmForm.get('title')?.touched
+      "
+    />
+    <div class="invalid-feedback">Il title è obbligatorio</div>
+  </div>
+
+  <!-- <div class="mb-3">
+    <label for="url" class="form-label">Url</label>
+    <input
+      type="text"
+      name="url"
+      class="form-control"
+      formControlName="url"
+      [class.is-invalid]="
+        filmForm.get('url')?.invalid && filmForm.get('url')?.touched
+      "
+    />
+    <div class="invalid-feedback">L'url è obbligatorio</div>
+  </div> -->
+
+  <div class="mb-3">
+    <label for="thumbnailUrl" class="form-label">immagine</label>
+    <input
+      type="text"
+      name="thumbnailUrl"
+      class="form-control"
+      formControlName="thumbnailUrl"
+      [class.is-invalid]="
+        filmForm.get('thumbnailUrl')?.invalid &&
+        filmForm.get('thumbnailUrl')?.touched
+      "
+    />
+    <div class="invalid-feedback">l'immagine è obbligatoria</div>
+  </div>
+
+  <input
+    type="submit"
+    value="aggiungi"
+    class="btn btn-primary"
+    [disabled]="filmForm.invalid"
+  />
+</form>

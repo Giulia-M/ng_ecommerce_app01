@@ -1,0 +1,23 @@
+<h2>Elenco</h2>
+<app-genere></app-genere>
+<app-modifica-product></app-modifica-product>
+<div>
+  <label>Ricerca per titolo</label>
+  <input
+    placeholder="Search"
+    class="form-control me-2"
+    type="text"
+    [(ngModel)]="textToSearch"
+  />
+</div>
+<div class="d-flex"></div>
+
+<div class="py-5">
+  <div class="d-flex flex-wrap">
+    <app-cards
+      *ngFor="let p of products | filterByArea: textToSearch"
+      [datiProducts]="p"
+      (addToCart)="addToCart($event)"
+    ></app-cards>
+  </div>
+</div>

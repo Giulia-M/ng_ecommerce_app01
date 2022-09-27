@@ -1,0 +1,15 @@
+<h2>Elenco film top rated</h2>
+
+<div>
+  <label>Ricerca per titolo</label>
+  <input placeholder="Search" class="form-control me-2" type="text" />
+</div>
+
+<div class="py-5">
+  <div class="d-flex flex-wrap justify-content-around">
+    <app-movie
+      *ngFor="let movie of movies"
+      [moviesTopRated]="movie"
+    ></app-movie>
+  </div>
+</div>

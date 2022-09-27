@@ -1,0 +1,16 @@
+.active {
+  background-color: rgb(228, 201, 201);
+}
+
+.d-flex {
+  justify-content: space-between;
+}
+input {
+  width: 400px;
+  margin: 5px;
+}
+label {
+  margin: 5px;
+
+  font-weight: bold;
+}

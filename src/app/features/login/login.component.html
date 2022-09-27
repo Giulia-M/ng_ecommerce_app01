@@ -1,0 +1,105 @@
+<div class="row">
+  <div class="col">
+    <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+      <div class="mb-3">
+        <label for="username" class="form-label">Username</label>
+        <input
+          type="text"
+          name="username"
+          class="form-control"
+          formControlName="username"
+          [class.is-invalid]="
+            loginForm.controls.username.invalid &&
+            loginForm.controls.username.touched
+          "
+        />
+        <div class="invalid-feedback">
+          <p *ngIf="loginForm.controls.username.errors?.required">
+            Lo username è obbligatorio
+          </p>
+          <p *ngIf="loginForm.controls.username.errors?.admin">
+            Non puoi usare l'utente amministratore
+          </p>
+        </div>
+      </div>
+
+      <div class="mb-3">
+        <label for="password" class="form-label">Password</label>
+        <input
+          type="password"
+          name="password"
+          class="form-control"
+          formControlName="password"
+          [class.is-invalid]="
+            loginForm.controls.password.invalid &&
+            loginForm.controls.password.touched
+          "
+        />
+        <div class="invalid-feedback">
+          <p *ngIf="loginForm.controls.password.errors?.required">
+            La password è obbligatoria
+          </p>
+          <p *ngIf="loginForm.controls.password.errors?.minlength">
+            La password deve contenere almeno 8 caratteri
+          </p>
+        </div>
+      </div>
+
+      <div class="form-check form-switch mb-3">
+        <input
+          type="checkbox"
+          id="loginemail"
+          class="form-check-input"
+          formControlName="loginemail"
+          (change)="cambiaLogin()"
+        />
+        <label for="loginemail" class="form-check-label"
+          >Login tramite e-mail</label
+        >
+      </div>
+
+      <div class="input-group mb-3" *ngIf="loginForm.controls.loginemail.value">
+        <label for="email" class="input-group-text">E-mail</label>
+        <input
+          type="email"
+          name="email"
+          id="email"
+          placeholder="info@mail.com"
+          class="form-control"
+          formControlName="email"
+          [class.is-invalid]="
+            loginForm.controls.email.invalid && loginForm.controls.email.touched
+          "
+        />
+        <div class="invalid-feedback">
+          <p *ngIf="loginForm.controls.email.errors?.required">
+            L'e-mail è obbligatoria
+          </p>
+          <p *ngIf="loginForm.controls.email.errors?.email">
+            Controlla la correttezza dell'indirizzo e-mail
+          </p>
+        </div>
+      </div>
+
+      <input
+        type="submit"
+        value="accedi"
+        class="btn btn-primary"
+        [disabled]="loginForm.invalid"
+      />
+    </form>
+  </div>
+
+  <div class="col">
+    <h3>Dati del form</h3>
+    <pre>
+            {{ loginForm.value | json }}
+    </pre>
+    <h3>Stato del form</h3>
+    <ul>
+      <li>Form touched: {{ loginForm.touched }}</li>
+      <li>Form dirty: {{ loginForm.dirty }}</li>
+      <li>Form valid: {{ loginForm.valid }}</li>
+    </ul>
+  </div>
+</div>
